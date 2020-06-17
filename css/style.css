@@ -1,0 +1,56 @@
+/* * {
+    outline: dotted;
+} */
+
+body {
+    margin: 0 auto;
+    width: 1000px;
+    background-color: rgb (27,71, 218);
+}
+
+main {
+    background-color: rgb (213,245,166);
+    padding: 20px;
+    clear: both;
+    width: 90%;
+    
+}
+
+header, footer {
+    height: 100px;
+    background-color: skyblue;
+    padding: 30px;
+}
+
+ul li {
+    list-style-type:none;
+    font-size: 20px;
+    display: inline; 
+    padding: 20px; 
+    background-color: rgb (85,136,212);
+    margin-left: 125px;
+}
+ol li{
+    list-style-type: none;
+    display: inline;
+    padding: 20px; 
+    background-color: rgb(85,136,212);
+    border-radius: 15px;
+}
+h1 {
+    color: #fcfdff;
+    font-size: 50px;
+    text-shadow: 2px 2px gray;
+    margin-bottom: 15px;
+    float: left;
+}
+nav{
+    background-color: rgb(44,94,141);
+    height: 100px;
+}
+
+
+.more-syles {
+    color: white;
+    background-color: #0000FF;
+}
