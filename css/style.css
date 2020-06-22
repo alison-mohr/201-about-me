@@ -31,11 +31,10 @@ ul li {
     margin-left: 125px;
 }
 ol li{
-    list-style-type: none;
-    display: inline;
-    padding: 20px; 
-    background-color: rgb(85,136,212);
-    border-radius: 15px;
+    /*list-style-type: none;*/
+    /*display: inline;*/
+    padding: 5px; 
+    background-color:gray;
 }
 h1 {
     color: #fcfdff;

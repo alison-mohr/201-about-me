@@ -1,14 +1,15 @@
-/* eslint-disable eqeqeq */
 'use strict';
-//first thing to do
 console.log('This file is connected');
-/*
-//Greet the user using prompt
-var userName = prompt ('What is your name?');
-console.log(userName);
-alert('Hello,' + userName + '! Welcome to my site.'); */
 
-/* //prompt our user for five yes or no questions
+var userPoints = 0;
+
+var userName = prompt('What is your name?');
+//console.log(userName);
+
+alert('Hello, ' + userName + '! Welcome to my site.');
+
+/*
+//prompt our user for five yes or no questions
 var favoriteFood = prompt('Is ice cream my favorite food?');
 console.log(favoriteFood);
 
@@ -18,6 +19,7 @@ console.log(lowerCaseFood);
 if(lowerCaseFood === 'yes' || lowerCaseFood === 'y') {
   //console.log('You are correct. Whitey\'s Ice Cream in Davenport makes the best ice cream in the world.');
   alert('You are correct. Whitey\'s Ice Cream in Davenport makes the best ice cream in the world.');
+  userPoints +=1;
 } else if(lowerCaseFood === 'no'|| lowerCaseFood === 'n') {
   //console.log ('Incorrect, I love ice cream.');
   alert('Incorrect, I love ice cream.');
@@ -36,6 +38,7 @@ console.log(lowerCaseKids);
 if(lowerCaseKids === 'yes' || lowerCaseKids === 'y') {
   //console.log('You are correct. I have a two and four year old.');
   alert('You are correct. I have a two and four year old.');
+  userPoints +=1;
 } else if(lowerCaseKids === 'no'|| lowerCaseKids === 'n') {
   //console.log ('Incorrect, I have a son and daughter.');
   alert('Incorrect, I have a son and daughter.');
@@ -54,6 +57,7 @@ console.log(lowerCaseFootball);
 if(lowerCaseFootball === 'yes' || lowerCaseFootball === 'y') {
   //console.log('You are correct. The Packers rock.');
   alert('You are correct. The Packers rock.');
+  userPoints +=1;
 } else if(lowerCaseFootball === 'no'|| lowerCaseFootball === 'n') {
   //console.log ('I\'m afraid you are confused.');
   alert('I\'m afraid you are confused.');
@@ -72,6 +76,7 @@ console.log(lowerCaseHobby);
 if(lowerCaseHobby === 'yes' || lowerCaseHobby === 'y') {
   //console.log('You are correct.');
   alert('You are correct.');
+  userPoints +=1;
 } else if(lowerCaseHobby === 'no'|| lowerCaseHobby === 'n') {
   //console.log ('Incorrect, I love to run.');
   alert('Incorrect, I love to run.');
@@ -96,65 +101,92 @@ if(lowerCaseTown === 'yes' || lowerCaseTown === 'y') {
 } else if(lowerCaseTown === 'no'|| lowerCaseTown === 'n') {
   //console.log ('Correct, I live in the home of Adventureland.');
   alert('Correct, I live in the home of Adventureland.');
+  userPoints += 1;
 }
 else {
   //console.log ('Please remember to respond using yes or no.');
   alert('Please remember to respond using yes or no.');
-}
-
- */
+} */
 
 //6th Question - Question that require numeric input. Alert indicates if it's too high or too low.
 
-
-alert('Hello, and welcome to the Guessing Game.');
-
-var userPoints = 0;
-
 /*
-var user = prompt ('What is your name?');
-var userName = user.toLowerCase();
-console.log(userName); */
+function questionSix(){
+  var userChance = 0;
+  var ollieAge = 4;
 
-function question6() {
-  var opportunities = 4;
-  var answer = 4;
+  alert('You are have four guesses for the next question.');
 
+  while (userChance < 4) {
+    var userNumber = prompt ('How old is my son?');
+    userNumber = Number(userNumber);
+    userChance += 1;
 
-  while (opportunities > 0) {
-    var ollieAge = prompt('How old is my son?');
-    if (!ollieAge) {
+    if (userNumber === ollieAge){
+      alert('Way to go!');
+      userPoints += 1;
       break;
+    }else if (userChance === 4){
+      alert ('You are out of chances.');
+    }else if (userNumber < ollieAge){
+      alert('Too low');
+    } else if(userNumber > ollieAge){
+      alert('Too high');
+    } else if(!userNumber){
+      alert('Please answer using only numeric values.');
     }
+  } alert('The answer was ' + ollieAge + '.');
+}
 
-    ollieAge = Number(ollieAge);
+*/
 
+//Add a 7th question that has multiple possible correct answers that are stored in an array.
 
-    if (ollieAge === answer) {
-      alert('Correct! Great guessing!');
-      userPoint += 1;
-      opportunities = 0;
-      break;
-    }
-    //Indicates through an alert if the guess is "too high or low"
+function questionSeven(){
+  var guesses = 0;
+  var myFamily = ['Ollie', 'Oliver', 'Caroline', 'Craig'];
 
-    else {
-      if (ollieAge < answer) {
-        alert('Too low!');
+  alert('You are have six guesses for the next question.');
+
+  while (guesses < 6) {
+    var correctAnswer = false;
+    var familyAnswer = prompt ('Can you guess the names of people in my family?');
+
+    for (var i = 0; i < myFamily.length; i++) {
+      if (familyAnswer === myFamily[i]) {
+        console.log(guesses, familyAnswer, 'correct');
+        correctAnswer = true;
+        break;
+      } else if(familyAnswer !== myFamily[i]){
+        console.log(guesses, familyAnswer, 'incorrect');
+        continue;
       }
-      else {
-        if (ollieAge > answer) {
-          alert('Too high!');
-        }
-      }
-      opportunities--;
-      console.log('guessCount is ' + opportunities);
     }
 
-  
-    //After attempts - tell user correct answer
-    alert('The answer was ' + answer + '.')
-  } 
-  question6();
+    if(correctAnswer === true){
+      alert('Yes, absolutely. They are in my family');
+      userPoints += 1;
+    } else if(correctAnswer === false) {
+      alert('Sounds like a nice name, but they aren\'t in my family.');
+    }
+    guesses +=1;
+  }
+}
 
-//It should give four opportunities to get the correct answer;
+questionSix();
+questionSeven();
+
+
+
+
+
+
+//Give the user 6 attempts to guess the correct answer.
+
+//The guesses will end once the user guesses a correct answer or they run out of attempts.
+
+//Display all the possible correct answers to the user.
+
+
+
+//Consider using a loop of some sort for this question.
