@@ -2,13 +2,14 @@
 console.log('This file is connected');
 
 var userPoints = 0;
+console.log('this is the score' + userPoints);
 
 var userName = prompt('What is your name?');
 //console.log(userName);
 
 alert('Hello, ' + userName + '! Welcome to my site.');
 
-/*
+
 //prompt our user for five yes or no questions
 var favoriteFood = prompt('Is ice cream my favorite food?');
 console.log(favoriteFood);
@@ -106,11 +107,11 @@ if(lowerCaseTown === 'yes' || lowerCaseTown === 'y') {
 else {
   //console.log ('Please remember to respond using yes or no.');
   alert('Please remember to respond using yes or no.');
-} */
+}
 
 //6th Question - Question that require numeric input. Alert indicates if it's too high or too low.
 
-/*
+
 function questionSix(){
   var userChance = 0;
   var ollieAge = 4;
@@ -138,7 +139,7 @@ function questionSix(){
   } alert('The answer was ' + ollieAge + '.');
 }
 
-*/
+
 
 //Add a 7th question that has multiple possible correct answers that are stored in an array.
 
@@ -146,11 +147,13 @@ function questionSeven(){
   var guesses = 0;
   var myFamily = ['Ollie', 'Oliver', 'Caroline', 'Craig'];
 
+  //Give the user 6 attempts to guess the correct answer.
   alert('You are have six guesses for the next question.');
 
   while (guesses < 6) {
     var correctAnswer = false;
     var familyAnswer = prompt ('Can you guess the names of people in my family?');
+
 
     for (var i = 0; i < myFamily.length; i++) {
       if (familyAnswer === myFamily[i]) {
@@ -163,9 +166,11 @@ function questionSeven(){
       }
     }
 
+    /*The guesses will end once the user guesses a correct answer or they run out of attempts.*/
     if(correctAnswer === true){
       alert('Yes, absolutely. They are in my family');
       userPoints += 1;
+      break;
     } else if(correctAnswer === false) {
       alert('Sounds like a nice name, but they aren\'t in my family.');
     }
@@ -176,17 +181,7 @@ function questionSeven(){
 questionSix();
 questionSeven();
 
-
-
-
-
-
-//Give the user 6 attempts to guess the correct answer.
-
-//The guesses will end once the user guesses a correct answer or they run out of attempts.
-
 //Display all the possible correct answers to the user.
+alert('The people in my family are Craig, Oliver (Ollie), and Caroline.');
 
-
-
-//Consider using a loop of some sort for this question.
+alert('Thank you for playing my guessing game, ' + userName + '. Your score was '+ userPoints + ' out of 7.');
